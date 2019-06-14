@@ -2,16 +2,15 @@ import querystringify from "querystringify";
 import config from "./config";
 import { isObjct } from "./utils";
 import { Notification, Loading } from "../components/uiLibrary";
-// import { getLocaleData } from "../i18n/utils";
-Notification({ title: "title", message: "message" });
-Loading({ text: "test" });
+import { getLocaleData } from "../i18n/utils";
+
 class FetchStateControlle {
 
-    // constructor() {
+    constructor() {
 
-    //     this.fetchLoading = Loading.service({ awaysShow: true });
+        this.fetchLoading = Loading.service({ text: "test" });
 
-    // }
+    }
 
     fetchStart() {
 
@@ -42,8 +41,7 @@ const fetchStateControlle = new FetchStateControlle();
 
 function getMessage() {
 
-    // const localeMessage = getLocaleData().message;
-    const localeMessage = {};
+    const localeMessage = getLocaleData().message;
 
     return {
         deleteConfirm: localeMessage["common.deleteConfirm"] || "Delete confirm?",

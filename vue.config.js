@@ -15,14 +15,14 @@ module.exports = {
     publicPath: isProduction ? "/" : "/",
     chainWebpack: config => {
 
-        config.module.rule("eslint").use("eslint-loader").loader("eslint-loader").tap(options => ({ ...options, fix: true, emitError: true, failOnWarning: true, failOnError: true }));
+        !isProduction && config.module.rule("eslint").use("eslint-loader").loader("eslint-loader").tap(options => ({ ...options, fix: true, emitError: true, failOnWarning: true, failOnError: true }));
 
     },
     devServer: {
         proxy: ""
     },
     pluginOptions: {
-        lintStyleOnBuild: true,
+        // lintStyleOnBuild: true,
         stylelint: {
             fix: true,
             failOnError: true,

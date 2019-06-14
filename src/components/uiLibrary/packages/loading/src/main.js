@@ -3,7 +3,9 @@ import Main from "./Main.vue";
 
 const UiController = Vue.extend(Main);
 
-export default (function() {
+const Loading = Main;
+
+Loading.service = (function() {
 
     let instance = null;
 
@@ -31,10 +33,11 @@ export default (function() {
 
         instance.$mount();
         (box || document.body).appendChild(instance.$el);
-        instance.visible = true;
 
         return instance;
 
     };
 
 })();
+
+export default Loading;

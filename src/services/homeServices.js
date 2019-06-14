@@ -3,7 +3,7 @@ import fetchAction from "../utils/fetch-proxy";
 const homeServices = {
     testGet(data) {
 
-        return fetchAction.get("/", data, false);
+        return fetchAction.get("/", data, true);
 
     }
 };

@@ -22,7 +22,7 @@ function getLanguageMap(languages, path) {
 
 }
 
-export const languageMap = getLanguageMap(config.languageSet, localeMessagePath);
+export const languageMap = getLanguageMap(config.project.languageSet, localeMessagePath);
 
 function browserLanguageFormat(lang) {
 
@@ -48,7 +48,7 @@ export function getLocaleData(language = getAppLanguage(), langs = languageMap) 
     const langMap = langs;
     const localeMessage = langMap[lang];
     const locale = localeMessage ? lang : "en";
-    const message = langMap[locale].locale;
+    const message = langMap[locale] ? langMap[locale].locale : {};
 
     return {
         locale,

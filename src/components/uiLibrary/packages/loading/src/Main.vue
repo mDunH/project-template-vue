@@ -1,6 +1,6 @@
 <template>
     <transition name="loading-fade">
-        <div v-show="visible" class="loading" :style="{ background }">
+        <div v-show="show === undefined ? visible : show" class="loading" :style="{ background }">
             <div class="spinner">
                 <div class="icon-box">
                     <i class="icon"></i>
@@ -28,16 +28,17 @@ export default {
             // optional
 
             visible: false,
-            closed: false
+            closed: null
         };
 
     },
+    props: ["show"],
     watch: {
         closed(newVal) {
 
+            this.visible = !newVal;
             if (newVal) {
 
-                this.visible = false;
                 this.$el.addEventListener("transitionend", this.destroyElement);
 
             }
@@ -54,8 +55,18 @@ export default {
         },
         close() {
 
+            if (this.show !== undefined) return;
+
             this.closed = true;
             typeof this.onClose === "function" && this.onClose();
+
+        },
+        open() {
+
+            if (this.show !== undefined) return;
+
+            this.closed = false;
+            typeof this.onOpen === "function" && this.onOpen();
 
         }
     }
