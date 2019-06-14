@@ -1,4 +1,4 @@
-# cv-database-interviewer-web
+# project-template-vue
 
 ## Project setup
 ```
