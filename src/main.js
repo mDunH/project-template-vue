@@ -1,12 +1,12 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./route";
-import config from "./utils/config";
+import Config from "./utils/config";
 import "./style/index.scss";
 
 Vue.config.productionTip = false;
 
-const { project } = config;
+const { project } = Config;
 const promiseList = [];
 
 // import()语法动态加载限制导致无法封装，待解决

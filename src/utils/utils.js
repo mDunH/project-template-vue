@@ -1,4 +1,4 @@
-import config from "./config";
+import Config from "./config";
 
 export function throttle(fn, duration = 160) {
 
@@ -84,7 +84,7 @@ export function isWindows() {
 export function getPlatform() {
 
     const size = window.innerWidth;
-    const platformSize = config.minPlatformSize || {
+    const platformSize = Config.minPlatformSize || {
         desktop: 1280,
         tablet: 750,
         mobile: 300

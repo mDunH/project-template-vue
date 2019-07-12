@@ -1,4 +1,4 @@
-import config from "../utils/config";
+import Config from "../utils/config";
 import { getLanguage } from "../utils/utils";
 
 const localeMessagePath = "locale";
@@ -22,7 +22,7 @@ function getLanguageMap(languages, path) {
 
 }
 
-export const languageMap = getLanguageMap(config.project.languageSet, localeMessagePath);
+export const languageMap = getLanguageMap(Config.project.languageSet, localeMessagePath);
 
 function browserLanguageFormat(lang) {
 

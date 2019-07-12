@@ -40,6 +40,11 @@ export default {
             if (newVal) {
 
                 this.$el.addEventListener("transitionend", this.destroyElement);
+                typeof this.onClose === "function" && this.onClose();
+
+            } else {
+
+                typeof this.onOpen === "function" && this.onOpen();
 
             }
 
@@ -58,7 +63,6 @@ export default {
             if (this.show !== undefined) return;
 
             this.closed = true;
-            typeof this.onClose === "function" && this.onClose();
 
         },
         open() {
@@ -66,7 +70,6 @@ export default {
             if (this.show !== undefined) return;
 
             this.closed = false;
-            typeof this.onOpen === "function" && this.onOpen();
 
         }
     }

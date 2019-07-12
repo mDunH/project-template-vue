@@ -9,7 +9,7 @@ Loading.service = (function() {
 
     let instance = null;
 
-    return function Loading(options) {
+    return function Loading(options = {}) {
 
         if (instance) return instance;
 

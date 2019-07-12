@@ -1,5 +1,5 @@
 import querystringify from "querystringify";
-import config from "./config";
+import Config from "./config";
 import { isObjct } from "./utils";
 import { Notification, Loading } from "../components/uiLibrary";
 import { getLocaleData } from "../i18n/utils";
@@ -8,7 +8,7 @@ class FetchStateControlle {
 
     constructor() {
 
-        this.fetchLoading = Loading.service({ text: "test" });
+        this.fetchLoading = Loading.service();
 
     }
 
@@ -141,14 +141,14 @@ function setRequest(method, u, data, isMask) {
 
     let url = u;
 
-    if (!url.startsWith("http")) url = config.service.url + url;
+    if (!url.startsWith("http")) url = Config.service.url + url;
 
     const myInit = {
         method,
-        headers: new Headers(config.service.headers)
+        headers: new Headers(Config.service.headers)
     };
 
-    injectData(data, config.service.data);
+    injectData(data, Config.service.data);
 
     if (method === "GET") url += `?${querystringify.stringify(data)}`;
     else if (data instanceof FormData) {

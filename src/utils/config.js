@@ -1,4 +1,4 @@
-const config = {
+const Config = {
     project: {
         i18n: true,
         languageSet: {},
@@ -11,4 +11,4 @@ const config = {
     }
 };
 
-export default config;
+export default Config;
